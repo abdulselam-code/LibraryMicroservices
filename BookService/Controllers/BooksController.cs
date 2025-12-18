@@ -33,5 +33,22 @@ namespace BookService.Controllers
 
             return Ok("Kitap başarıyla eklendi");
         }
+        [HttpPut("{id}/status")]
+        public IActionResult UpdateStatus(int id)
+        {
+            var json = System.IO.File.ReadAllText("books.json");
+            var books = JsonSerializer.Deserialize<List<Book>>(json);
+
+            var book = books.FirstOrDefault(b => b.Id == id);
+            if (book == null) return NotFound();
+
+            book.Status = "Ödünçte";
+
+            System.IO.File.WriteAllText("books.json",
+                JsonSerializer.Serialize(books, new JsonSerializerOptions { WriteIndented = true }));
+
+            return Ok();
+        }
+
     }
 }
