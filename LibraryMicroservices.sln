@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36518.9 d17.14
+VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService", "UserService\UserService.csproj", "{9B5464C2-01E1-450D-A353-45CC40BD29E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookService", "BookService\BookService.csproj", "{B51D2B9A-8EF3-4489-AD5D-DB38264AB7E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BorrowService", "BorrowService\BorrowService.csproj", "{C452230F-D053-3DD3-4944-283EB26231B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{9B5464C2-01E1-450D-A353-45CC40BD29E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B5464C2-01E1-450D-A353-45CC40BD29E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B5464C2-01E1-450D-A353-45CC40BD29E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B51D2B9A-8EF3-4489-AD5D-DB38264AB7E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B51D2B9A-8EF3-4489-AD5D-DB38264AB7E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B51D2B9A-8EF3-4489-AD5D-DB38264AB7E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B51D2B9A-8EF3-4489-AD5D-DB38264AB7E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C452230F-D053-3DD3-4944-283EB26231B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C452230F-D053-3DD3-4944-283EB26231B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C452230F-D053-3DD3-4944-283EB26231B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C452230F-D053-3DD3-4944-283EB26231B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
