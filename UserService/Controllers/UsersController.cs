@@ -13,12 +13,12 @@ namespace UserService.Controllers
         [HttpPost]
         public IActionResult AddUser(User user)
         {
-            List<User> users = new List<User>();
+            List<User> users = new();
 
             if (System.IO.File.Exists(filePath))
             {
                 var json = System.IO.File.ReadAllText(filePath);
-                users = JsonSerializer.Deserialize<List<User>>(json);
+                users = JsonSerializer.Deserialize<List<User>>(json) ?? new();
             }
 
             users.Add(user);
@@ -32,5 +32,20 @@ namespace UserService.Controllers
 
             return Ok("Kullanıcı başarıyla eklendi");
         }
+
+       
+        [HttpGet]
+        public IActionResult GetUsers()
+        {
+            if (!System.IO.File.Exists(filePath))
+                return Ok(new List<User>());
+
+            var json = System.IO.File.ReadAllText(filePath);
+            var users = JsonSerializer.Deserialize<List<User>>(json) ?? new List<User>();
+
+            return Ok(users);
+        }
+        
     }
+
 }

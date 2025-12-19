@@ -3,6 +3,36 @@
     "Id": 1,
     "Title": "Clean Code",
     "Author": "Robert C. Martin",
+    "Status": "\u00D6d\u00FCn\u00E7te"
+  },
+  {
+    "Id": 1,
+    "Title": "Clean Code",
+    "Author": "Robert C. Martin",
+    "Status": "M\u00FCsait"
+  },
+  {
+    "Id": 1,
+    "Title": "jeys\u0131n Code",
+    "Author": "Robert C. Martin",
+    "Status": "M\u00FCsait"
+  },
+  {
+    "Id": 1,
+    "Title": "Clean Architecture",
+    "Author": "Robert C. Martin",
+    "Status": "M\u00FCsait"
+  },
+  {
+    "Id": 3,
+    "Title": "ceykip Architecture",
+    "Author": "Robert C. Martin",
+    "Status": "\u00D6d\u00FCn\u00E7te"
+  },
+  {
+    "Id": 1,
+    "Title": "Su\u00E7 ve Ceza",
+    "Author": "Fyodor Dostoyevski",
     "Status": "M\u00FCsait"
   }
 ]

@@ -1,3 +1,10 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi;
+using Microsoft.OpenApi.Models;
+
+//using Microsoft.OpenApi.Models;
 
 namespace BorrowService
 {
@@ -7,25 +14,36 @@ namespace BorrowService
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
+            // Controller servislerini ekle
             builder.Services.AddControllers();
-            // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-            builder.Services.AddOpenApi();
+
+            // Swagger servislerini ekle
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "BorrowService API",
+                    Version = "v1"
+                });
+            });
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // Swagger middleware
             if (app.Environment.IsDevelopment())
             {
-                app.MapOpenApi();
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "BorrowService API v1");
+                });
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
 
-
+            // Controller map
             app.MapControllers();
 
             app.Run();

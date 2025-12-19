@@ -1,4 +1,5 @@
-﻿namespace BorrowService.Models
+﻿using System;
+namespace BorrowService.Models
 {
     public class Borrow
     {
@@ -7,4 +8,5 @@
         public DateTime BorrowDate { get; set; }
     }
 }
+
 
