@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BookService.Models;
 using System.Text.Json;
-
+using System.Linq;
 namespace BookService.Controllers
 {
     [ApiController]
@@ -64,6 +64,31 @@ namespace BookService.Controllers
                 JsonSerializer.Serialize(books, new JsonSerializerOptions { WriteIndented = true }));
 
             return Ok();
+        }
+
+        [HttpPut("{id}/available")]
+        public IActionResult MakeAvailable(int id)
+        {
+            if (!System.IO.File.Exists("books.json"))
+                return NotFound("books.json bulunamadı");
+
+            var json = System.IO.File.ReadAllText("books.json");
+            var books = JsonSerializer.Deserialize<List<Book>>(json);
+
+            var book = books.FirstOrDefault(b => b.Id == id);
+            if (book == null)
+                return NotFound("Kitap bulunamadı");
+
+            book.Status = "Müsait";
+
+            var updatedJson = JsonSerializer.Serialize(books, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+
+            System.IO.File.WriteAllText("books.json", updatedJson);
+
+            return Ok("Kitap tekrar müsait duruma getirildi");
         }
 
 
